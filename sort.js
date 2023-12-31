@@ -1,3 +1,5 @@
+let copy = document.querySelectorAll('.copy');
+
 function pegarValoresHtml() {
   const valorMaximo = document.getElementById('valor-maximo').value
   const quantidadeNumeros = document.getElementById(
@@ -37,12 +39,10 @@ function mostraNumerosNoHTML(numeros) {
   }
 }
 
-function limpar() {}
-function copied() {
-  /*funcão para copiar para area de transferencia */
-}
+
 
 function sortear() {
+  debugger
   // limpar números anteriores
 
   const { valorMaximo, quantidadeNumeros } = pegarValoresHtml()
@@ -61,11 +61,40 @@ function sortear() {
   if (numeros.size < quantidadeNumeros) {
     while (numeros.size < quantidadeNumeros) {
       numeros.add(gerarNumeroAleatorio(valorMaximo))
+      
     }
   }
 
   mostraNumerosNoHTML([...numeros])
+    
+  if (copy.length > 0) {
+    copy[0].style.display = 'block';
+  }
+
+
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  let copy = document.querySelectorAll('.copy');
+
+  
+
+  copy[0].addEventListener('click', function (e) {
+    const listaConteudo = document.getElementById('lista').innerText;
+    const tempTextarea = document.createElement('textarea');
+    tempTextarea.value = listaConteudo;
+
+    document.body.appendChild(tempTextarea);
+    tempTextarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempTextarea);
+
+    alert('Conteúdo copiado com sucesso!');
+  });
+
+  
+});
+
 
 function gerarNumerosAleatorios() {
   const { valorMaximo, quantidadeNumeros } = pegarValoresHtml()
