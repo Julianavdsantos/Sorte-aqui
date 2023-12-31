@@ -76,6 +76,14 @@ main {
   top: -20;
   cursor: pointer;
 }
+
+.copy{
+  cursor: pointer;
+  margin-bottom: 5%;
+ 
+}
+
+
 #btnAdd {
   border-top: 1px solid #96d1f8;
   background: #65a5d6;
@@ -87,6 +95,8 @@ main {
     from(#623e9c),
     to(#65a5d6)
   );
+
+  
   background: -webkit-linear-gradient(top, #1a8617, #65a5d6);
   background: -moz-linear-gradient(top, #1a8617, #65a5d6);
   background: -ms-linear-gradient(top, #623e9c, #65a5d6);
